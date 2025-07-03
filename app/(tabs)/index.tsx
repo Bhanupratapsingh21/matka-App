@@ -13,16 +13,31 @@ import {
 } from 'react-native';
 import { Ionicons, MaterialIcons, FontAwesome, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import MarketCard from '@/components/BIDCard';
+import { RelativePathString, router } from 'expo-router';
 
 const { width } = Dimensions.get('window');
-
+// Sample data for each tab
+const tabData = {
+  MAIN: [
+    { marketName: 'Sridevi Morning', numbers: '120 - 110 - 210', openBidsTime: '09:40 AM', closeBidsTime: '10:50 AM' },
+    { marketName: 'Kalyan Morning', numbers: '150 - 140 - 250', openBidsTime: '10:40 AM', closeBidsTime: '11:50 AM' },
+  ],
+  STARLINE: [
+    { marketName: 'Milan Day', numbers: '320 - 310 - 410', openBidsTime: '01:40 PM', closeBidsTime: '02:50 PM' },
+    { marketName: 'Rajdhani Night', numbers: '520 - 510 - 610', openBidsTime: '09:40 PM', closeBidsTime: '10:50 PM' },
+  ],
+  DESAWAR: [
+    { marketName: 'Desawar Morning', numbers: '220 - 210 - 310', openBidsTime: '05:40 AM', closeBidsTime: '06:50 AM' },
+    { marketName: 'Desawar Night', numbers: '420 - 410 - 510', openBidsTime: '08:40 PM', closeBidsTime: '09:50 PM' },
+  ]
+};
 export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [notificationCount] = useState(3);
   const [walletAmount] = useState('2.5K');
   const [userName] = useState('John Doe');
   const [userMobile] = useState('+91 9876543210');
-
+  const [activeTab, setActiveTab] = useState<'MAIN' | 'STARLINE' | 'DESAWAR'>('MAIN'); // Track active tab
   const slideAnim = useState(new Animated.Value(-width))[0];
 
   // Scrolling text animation
@@ -62,19 +77,19 @@ export default function App() {
   };
 
   const menuItems = [
-    { icon: 'home', name: 'Home', component: 'Home' },
-    { icon: 'user', name: 'Profile', component: 'Profile' },
-    { icon: 'clipboard', name: 'Notice Board', component: 'NoticeBoard' },
-    { icon: 'book', name: 'Passbook', component: 'Passbook' },
-    { icon: 'credit-card', name: 'Bank Details', component: 'BankDetails' },
-    { icon: 'info-circle', name: 'How to Play', component: 'HowToPlay' },
-    { icon: 'history', name: 'Bid History', component: 'BidHistory' },
-    { icon: 'gamepad', name: 'Game Rates', component: 'GameRates' },
-    { icon: 'phone', name: 'Contact Us', component: 'ContactUs' },
-    { icon: 'share-alt', name: 'Share with Friends', component: 'Share' },
-    { icon: 'settings', name: 'Settings', component: 'Settings' },
-    { icon: 'lock', name: 'Change Password', component: 'ChangePassword' },
-    { icon: 'power-off', name: 'Logout', component: 'Logout' },
+    { icon: 'home', name: 'Home', component: 'Home', path: "/" },
+    { icon: 'user', name: 'Profile', component: 'Profile', path: "/Myprofile/Index/" },
+    { icon: 'clipboard', name: 'Notice Board', component: 'NoticeBoard', path: "/" },
+    { icon: 'book', name: 'Passbook', component: 'Passbook', path: "/" },
+    { icon: 'credit-card', name: 'Bank Details', component: 'BankDetails', path: "/" },
+    { icon: 'info-circle', name: 'How to Play', component: 'HowToPlay', path: "/" },
+    { icon: 'history', name: 'Bid History', component: 'BidHistory', path: "/" },
+    { icon: 'gamepad', name: 'Game Rates', component: 'GameRates', path: "/" },
+    { icon: 'phone', name: 'Contact Us', component: 'ContactUs', path: "/" },
+    { icon: 'share-alt', name: 'Share with Friends', component: 'Share', path: "/" },
+    { icon: 'settings', name: 'Settings', component: 'Settings', path: "/Settings/Index" },
+    { icon: 'lock', name: 'Change Password', component: 'ChangePassword', path: "/" },
+    { icon: 'power-off', name: 'Logout', component: 'Logout', path: "/" },
   ];
 
   return (
@@ -95,11 +110,11 @@ export default function App() {
         </View>
 
         <View style={styles.rightSection}>
-          <View style={styles.walletSection}>
+          <TouchableOpacity onPress={() => router.push("/(tabs)/passbook")} style={styles.walletSection}>
             <MaterialIcons name="account-balance-wallet" size={20} color="black" />
             <Text style={styles.walletAmount}>{walletAmount}</Text>
-          </View>
-          <TouchableOpacity style={styles.notificationButton}>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push("/Notifications/Index")} style={styles.notificationButton}>
             <Ionicons name="notifications-outline" size={24} color="black" />
             {notificationCount > 0 && (
               <View style={styles.notificationBadge}>
@@ -135,14 +150,14 @@ export default function App() {
 
       {/* Action Buttons */}
       <View style={styles.actionButtonsContainer}>
-        <TouchableOpacity style={styles.actionButton}>
+        <TouchableOpacity onPress={() => router.push("/Addpoint/Index")} style={styles.actionButton}>
           <View style={styles.actionIconContainer}>
             <MaterialIcons name="add-circle-outline" size={24} color="black" />
           </View>
           <Text style={styles.actionButtonText}>Add Cash</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.actionButton}>
+        <TouchableOpacity onPress={() => router.push("/Withdraw/Index")} style={styles.actionButton}>
           <View style={styles.actionIconContainer}>
             <MaterialIcons name="arrow-downward" size={24} color="black" />
           </View>
@@ -163,35 +178,44 @@ export default function App() {
           <Text style={styles.actionButtonText}>Telegram</Text>
         </TouchableOpacity>
       </View>
-
       {/* Navigation Tabs */}
       <View style={styles.navigationTabs}>
-        <TouchableOpacity style={[styles.navTab, styles.activeTab]}>
-          <Text style={[styles.navTabText, styles.activeTabText]}>MAIN</Text>
+        <TouchableOpacity
+          style={[styles.navTab, activeTab === 'MAIN' && styles.activeTab]}
+          onPress={() => setActiveTab('MAIN')}
+        >
+          <Text style={[styles.navTabText, activeTab === 'MAIN' && styles.activeTabText]}>MAIN</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.navTab}>
-          <Text style={styles.navTabText}>STARLINE</Text>
+        <TouchableOpacity
+          style={[styles.navTab, activeTab === 'STARLINE' && styles.activeTab]}
+          onPress={() => setActiveTab('STARLINE')}
+        >
+          <Text style={[styles.navTabText, activeTab === 'STARLINE' && styles.activeTabText]}>STARLINE</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.navTab}>
-          <Text style={styles.navTabText}>DESAWAR</Text>
+        <TouchableOpacity
+          style={[styles.navTab, activeTab === 'DESAWAR' && styles.activeTab]}
+          onPress={() => setActiveTab('DESAWAR')}
+        >
+          <Text style={[styles.navTabText, activeTab === 'DESAWAR' && styles.activeTabText]}>DESAWAR</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Main Content */}
+      {/* Main Content - Tab Panels */}
       <ScrollView style={styles.mainContent}>
-        <Text style={styles.welcomeText}>Welcome to Bombay Matka</Text>
-        {[...Array(10)].map((_, idx) => (
+        <Text style={styles.welcomeText}>Welcome to Bombay Matka - {activeTab}</Text>
+
+        {tabData[activeTab].map((market, idx) => (
           <MarketCard
             key={idx}
-            marketName={`Sridevi morning ${idx + 1}`}
-            numbers={`${100 + idx} - ${90 + idx} - ${200 + idx}`}
-            openBidsTime="09 40 AM"
-            closeBidsTime="10 50 AM"
+            marketName={market.marketName}
+            numbers={market.numbers}
+            openBidsTime={market.openBidsTime}
+            closeBidsTime={market.closeBidsTime}
             marketStatus={idx % 2 === 0 ? "Market Close" : "Market Open"}
-            onChartPress={() => console.log(`Chart pressed for card ${idx + 1}`)}
-            onPlayPress={() => console.log(`Play pressed for card ${idx + 1}`)}
+            onChartPress={() => router.push("/Chart/Index")}
+            onPlayPress={() => router.push("/Games/Index")}
           />
         ))}
       </ScrollView>
@@ -225,7 +249,9 @@ export default function App() {
               key={index}
               style={styles.menuItem}
               onPress={() => {
-                console.log(`Navigating to ${item.component}`);
+                router.push(item.path as RelativePathString);
+
+
                 toggleDrawer();
               }}
             >
