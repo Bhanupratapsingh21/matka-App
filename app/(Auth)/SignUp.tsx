@@ -61,8 +61,8 @@ export default function SignUpScreen() {
                                         <View style={styles.dice} />
                                         <View style={styles.dice} />
                                     </View>
-                                    <Text style={styles.logoText}>BOMBAY</Text>
-                                    <Text style={styles.logoSubText}>MATKA</Text>
+                                    <Text style={styles.logoText}>MH </Text>
+                                    <Text style={styles.logoSubText}>GAMES</Text>
                                 </View>
                             </View>
                         </View>

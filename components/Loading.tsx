@@ -14,7 +14,7 @@ export default function LoadingScreen() {
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <Animated.Image
-                    source={{ uri: "https://res.cloudinary.com/djwzwq4cu/image/upload/v1751450003/Kruti-AI-generated-image_jvtugy.png" }}
+                    source={{ uri: "https://res.cloudinary.com/djwzwq4cu/image/upload/v1752442099/Kruti-AI-generated-image_e9hux8.png" }}
                     style={{
                         width: 100,
                         height: 100,

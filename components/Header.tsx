@@ -68,8 +68,8 @@ export default function App() {
                 </TouchableOpacity>
 
                 <View style={styles.titleContainer}>
-                    <Text style={styles.title}>BOMBAY</Text>
-                    <Text style={styles.subTitle}>MATKA</Text>
+                    <Text style={styles.title}>MH </Text>
+                    <Text style={styles.subTitle}>GAMES</Text>
                 </View>
 
                 <View style={styles.rightIcons}>
@@ -91,7 +91,7 @@ export default function App() {
 
             {/* Main Content */}
             <View style={styles.content}>
-                <Text style={styles.welcomeText}>Welcome to Bombay Matka</Text>
+                <Text style={styles.welcomeText}>Welcome to MH GAMES</Text>
                 {/* Your main app content would go here */}
             </View>
 

@@ -104,9 +104,9 @@ export default function App() {
 
         <View style={styles.centerSection}>
           <View style={styles.bombayButton}>
-            <Text style={styles.bombayText}>BOMBAY</Text>
+            <Text style={styles.bombayText}>MH</Text>
           </View>
-          <Text style={styles.matkaText}>MATKA</Text>
+          <Text style={styles.matkaText}>GAMES</Text>
         </View>
 
         <View style={styles.rightSection}>
@@ -143,7 +143,7 @@ export default function App() {
               { transform: [{ translateX: scrollAnim }] }
             ]}
           >
-            WELCOME TO BOMBAY MATKA NO. 1 TRUSTED APP . PLAY
+            WELCOME TO MH GAMES NO. 1 TRUSTED APP . PLAY
           </Animated.Text>
         </ScrollView>
       </View>
@@ -204,7 +204,7 @@ export default function App() {
 
       {/* Main Content - Tab Panels */}
       <ScrollView style={styles.mainContent}>
-        <Text style={styles.welcomeText}>Welcome to Bombay Matka - {activeTab}</Text>
+        <Text style={styles.welcomeText}>Welcome to MH GAMES - {activeTab}</Text>
 
         {tabData[activeTab].map((market, idx) => (
           <MarketCard
