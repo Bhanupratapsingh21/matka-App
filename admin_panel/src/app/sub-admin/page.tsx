@@ -1,14 +1,8 @@
 "use client";
 
+import { Staff } from "@/types/AllTypes";
 import { useState } from "react";
 
-type Staff = {
-    id: number;
-    name: string;
-    number: string;
-    password: string;
-    fullAccess: boolean;
-};
 
 export default function SubAdminPage() {
     const [staffList, setStaffList] = useState<Staff[]>([]);
@@ -43,7 +37,6 @@ export default function SubAdminPage() {
 
     return (
         <div className="p-4 space-y-6 max-w-4xl mx-auto">
-            {/* Add Staff Form */}
             <div className="bg-white rounded-lg shadow-sm p-6 space-y-4">
                 <h2 className="text-lg font-semibold">Add Staff</h2>
 
