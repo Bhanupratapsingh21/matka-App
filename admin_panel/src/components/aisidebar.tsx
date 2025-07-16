@@ -1,34 +1,33 @@
 "use client";
-import {
-  Bell,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  CreditCard,
-  DollarSign,
-  FileText,
-  Gamepad2,
-  LayoutDashboard,
-  PlusCircle,
-  Settings,
-  Star,
-  Target,
-  TrendingUp,
-  Trophy,
-  UserCog,
-  Users,
-  Wallet,
-  History,
-  Atom,
-} from "lucide-react";
+
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
+import {
+  LayoutDashboard,
+  Users,
+  Trophy,
+  Target,
+  FileText,
+  Wallet,
+  Gamepad2,
+  Settings,
+  Bell,
+  Star,
+  UserCog,
+  History,
+  ChevronDown,
+  ChevronRight,
+  DollarSign,
+  TrendingUp,
+  CreditCard,
+  PlusCircle,
+  Clock,
+} from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/" },
-  { icon: Users, label: "User Management", href: "/users" },
+  { icon: Users, label: "User Management", href: "/user" },
   { icon: Trophy, label: "Declare Result", href: "/declare-result" },
   { icon: Target, label: "Winning Prediction", href: "/winning-prediction" },
 ];
@@ -59,67 +58,31 @@ const collapsibleMenuItems = [
     icon: Wallet,
     label: "Wallet Management",
     key: "wallet",
-    subItems: [
-      { icon: Atom, label: "Fund Request", href: "/fund-request" },
-      { icon: Atom, label: "Withdraw Request", href: "/refund-request" },
-      { icon: Atom, label: "Bid Revert", href: "/bid-revert" },
-    ],
+    subItems: [],
   },
   {
     icon: Gamepad2,
     label: "Games Management",
     key: "games",
-    subItems: [
-      { icon: Atom, label: "Game Name", href: "/game-name" },
-      { icon: Atom, label: "Game Rates", href: "/game-rates" },
-      { icon: Atom, label: "Game Number", href: "/game-number" },
-    ],
+    subItems: [],
   },
   {
     icon: Settings,
     label: "Settings",
     key: "settings",
-    subItems: [
-      { icon: Atom, label: "Main Settings", href: "/main-setting" },
-      { icon: Atom, label: "Contact Settings", href: "/contact-setting" },
-      { icon: Atom, label: "How to play", href: "/how-to-play" },
-      { icon: Atom, label: "Slider Images", href: "/slider-images" },
-      {
-        icon: Atom,
-        label: "Withdraw Day Option",
-        href: "/withdraw-day-option",
-      },
-    ],
+    subItems: [],
   },
   {
     icon: Bell,
     label: "Notice Management",
     key: "notices",
-    subItems: [
-      { icon: Atom, label: "Notice Management", href: "/notice-management" },
-      { icon: Atom, label: "Add Fund Notice", href: "/add-fund-notice" },
-      { icon: Atom, label: "Withdraw Notice", href: "/withdraw-notice" },
-      { icon: Atom, label: "send-notification", href: "/send-notification" },
-    ],
+    subItems: [],
   },
   {
     icon: Star,
     label: "Starline Management",
     key: "starline",
-    subItems: [
-      { icon: Atom, label: "Game Name", href: "/game-name" },
-      { icon: Atom, label: "Game Rates", href: "/game-rates" },
-      { icon: Atom, label: "Bid History", href: "/bid-history" },
-      { icon: Atom, label: "Custom Sell Report", href: "/custom-sell-report" },
-      { icon: Atom, label: "Declare Result", href: "/declare-result" },
-      { icon: Atom, label: "Winning Prediction", href: "/winning prediction" },
-      {
-        icon: Atom,
-        label: "Starline Winning Report",
-        href: "/starline-winning-report",
-      },
-      { icon: Atom, label: "Bid Revert", href: "/bid-revert" },
-    ],
+    subItems: [],
   },
   {
     icon: Star,
@@ -128,16 +91,12 @@ const collapsibleMenuItems = [
     subItems: [],
   },
 ];
+
 const bottomMenuItems = [
   { icon: UserCog, label: "Sub Admin Management", href: "/sub-admin" },
 ];
-export default function Sidebar({
-  collapsed,
-  setCollapsed,
-}: {
-  collapsed: boolean;
-  setCollapsed: (collapsed: boolean) => void;
-}) {
+
+export default function Sidebar() {
   const pathname = usePathname();
   const [expandedSections, setExpandedSections] = useState<string[]>([
     "reports",
@@ -156,58 +115,29 @@ export default function Sidebar({
   };
 
   return (
-    <div
-      className={`${
-        collapsed ? "w-20" : "w-64"
-      } bg-slate-800 text-white min-h-screen fixed z-50 transition-all duration-300 ease-in-out`}
-    >
+    <div className="w-64 bg-slate-800 text-white min-h-screen">
       <div className="p-4">
-        {/* Header with logo and toggle button */}
-        <div className="flex items-center justify-between gap-1 mb-8">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-              <Star className="w-5 h-5" />
-            </div>
-            {!collapsed && (
-              <span className="font-semibold whitespace-nowrap">
-                Kalyan Star
-              </span>
-            )}
+        <div className="flex items-center gap-2 mb-8">
+          <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+            <Star className="w-5 h-5" />
           </div>
-
-          {/* Toggle button */}
-          <button
-            onClick={() => setCollapsed(!collapsed)}
-            className="p-1 rounded-lg hover:bg-slate-700 transition-colors"
-          >
-            {collapsed ? (
-              <ChevronRight className="w-5 h-5 " />
-            ) : (
-              <ChevronLeft className="w-5 h-5" />
-            )}
-          </button>
+          <span className="font-semibold">Kalyan Star</span>
         </div>
 
-        {/* Navigation menu */}
-        <nav
-          className={`transition-all ${
-            collapsed ? "duration-300" : "duration-1000"
-          } ${collapsed ? "space-y-3.5" : "space-y-1"}`}
-        >
+        <nav className="space-y-1">
+          {/* Regular menu items */}
           {menuItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3
-               px-3 py-2 rounded-lg text-gray-300 hover:bg-slate-700 hover:text-white transition-all duration-300`}
-              title={collapsed ? item.label : undefined}
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
+                isActive(item.href)
+                  ? "bg-slate-700 text-white"
+                  : "text-gray-300 hover:bg-slate-700 hover:text-white"
+              }`}
             >
-              <item.icon className="w-5 h-5 flex-shrink-0 transition-all duration-300" />
-              {!collapsed && (
-                <span className="text-sm whitespace-nowrap transition-all duration-300">
-                  {item.label}
-                </span>
-              )}
+              <item.icon className="w-5 h-5" />
+              <span className="text-sm">{item.label}</span>
             </Link>
           ))}
 

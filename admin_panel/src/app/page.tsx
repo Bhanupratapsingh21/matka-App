@@ -91,7 +91,7 @@ const fundRequests = [
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="flex flex-col gap-4">
       <WelcomeSection approvedUsers={3846} UnapprovedUsers={9} />
       <StatsCards />
       <BidsSection />
