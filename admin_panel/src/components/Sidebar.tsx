@@ -125,7 +125,20 @@ const collapsibleMenuItems = [
     icon: Star,
     label: "Galidesawar",
     key: "galidesawar",
-    subItems: [],
+    subItems: [
+      { icon: Atom, label: "Game Name", href: "/game-name" },
+      { icon: Atom, label: "Game Rates", href: "/game-rates" },
+      {
+        icon: Atom,
+        label: "Customer Sell Report",
+        href: "/customer-sell-report",
+      },
+      { icon: Atom, label: "Bid History", href: "/bid-history" },
+      { icon: Atom, label: "Declare Results", href: "/declare-results" },
+      { icon: Atom, label: "Winning Prediction", href: "/winning-prediction" },
+      { icon: Atom, label: "Winning Report", href: "/winning-report" },
+      { icon: Atom, label: "bid-revert", href: "/bid-revert" },
+    ],
   },
 ];
 const bottomMenuItems = [
@@ -213,20 +226,27 @@ export default function Sidebar({
 
           {/* Collapsible menu items */}
           {collapsibleMenuItems.map((item) => (
-            <div key={item.key}>
+            <div key={item.key} className="relative group">
               <button
                 onClick={() => toggleSection(item.key)}
-                className={`w-full flex items-center justify-between gap-3 px-3 py-2 rounded-lg transition-colors ${
+                className={`w-full flex items-center ${
+                  collapsed ? "justify-center" : "justify-between"
+                } gap-3 px-3 py-2 rounded-lg transition-colors ${
                   isParentActive(item.subItems)
                     ? "bg-slate-700 text-white"
                     : "text-gray-300 hover:bg-slate-700 hover:text-white"
                 }`}
+                title={collapsed ? item.label : undefined}
               >
                 <div className="flex items-center gap-3">
-                  <item.icon className="w-5 h-5" />
-                  <span className="text-sm">{item.label}</span>
+                  <item.icon className="w-5 h-5 flex-shrink-0" />
+                  {!collapsed && (
+                    <span className="text-sm whitespace-nowrap transition-all duration-300">
+                      {item.label}
+                    </span>
+                  )}
                 </div>
-                {item.subItems.length > 0 && (
+                {!collapsed && item.subItems.length > 0 && (
                   <>
                     {expandedSections.includes(item.key) ? (
                       <ChevronDown className="w-4 h-4" />
@@ -237,8 +257,36 @@ export default function Sidebar({
                 )}
               </button>
 
-              {/* Sub-menu items */}
-              {expandedSections.includes(item.key) &&
+              {/* Hover submenu for collapsed state */}
+              {collapsed && item.subItems.length > 0 && (
+                <div className="absolute left-full top-0 ml-2 w-64 bg-slate-800 border border-slate-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2">
+                    <div className="text-xs font-semibold text-gray-400 mb-2 px-2">
+                      {item.label}
+                    </div>
+                    <div className="space-y-1">
+                      {item.subItems.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${
+                            isActive(subItem.href)
+                              ? "bg-slate-600 text-white"
+                              : "text-gray-300 hover:bg-slate-700 hover:text-white"
+                          }`}
+                        >
+                          <subItem.icon className="w-4 h-4" />
+                          <span>{subItem.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Sub-menu items for expanded state */}
+              {!collapsed &&
+                expandedSections.includes(item.key) &&
                 item.subItems.length > 0 && (
                   <div className="ml-6 mt-1 space-y-1">
                     {item.subItems.map((subItem) => (
@@ -270,9 +318,14 @@ export default function Sidebar({
                   ? "bg-slate-700 text-white"
                   : "text-gray-300 hover:bg-slate-700 hover:text-white"
               }`}
+              title={collapsed ? item.label : undefined}
             >
-              <item.icon className="w-5 h-5" />
-              <span className="text-sm">{item.label}</span>
+              <item.icon className="w-5 h-5 flex-shrink-0" />
+              {!collapsed && (
+                <span className="text-sm whitespace-nowrap transition-all duration-300">
+                  {item.label}
+                </span>
+              )}
             </Link>
           ))}
         </nav>
