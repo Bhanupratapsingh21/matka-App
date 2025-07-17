@@ -15,8 +15,25 @@ import { Label } from "@/components/ui/label"
 export default function GameReportPage() {
     const [heading, setHeading] = useState("Today Result History")
 
+    const [data, setData] = useState([
+        {
+            id: 1,
+            gameName: "KALYAN MORNING",
+            resultDate: "2025-07-17",
+            openTime: "17 Jul 2025 11:23 AM",
+            closeTime: "17 Jul 2025 12:12 PM",
+            openNumber: "1290",
+            closeNumber: "9360",
+        },
+    ])
+
     const handleFilterClick = () => {
         setHeading("17 July 2025 Result History")
+    }
+
+    const handleDelete = (id: number) => {
+        const filteredData = data.filter((item) => item.id !== id)
+        setData(filteredData)
     }
 
     return (
@@ -84,7 +101,7 @@ export default function GameReportPage() {
                     </div>
 
                     <div className="mt-6 flex justify-end">
-                        <Button className="bg-blue-700 hover:bg-blue-700 text-white px-8 py-2">
+                        <Button className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-2">
                             Go
                         </Button>
                     </div>
@@ -107,7 +124,7 @@ export default function GameReportPage() {
                         </div>
 
                         <div className="space-y-2">
-                            <Button onClick={handleFilterClick} className="bg-blue-700 ">
+                            <Button onClick={handleFilterClick} className="bg-blue-700 text-white">
                                 Filter
                             </Button>
                         </div>
@@ -132,7 +149,34 @@ export default function GameReportPage() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* Table rows will go here */}
+                                {data.length === 0 ? (
+                                    <tr>
+                                        <td colSpan={8} className="text-center py-4 text-gray-500">
+                                            No data available
+                                        </td>
+                                    </tr>
+                                ) : (
+                                    data.map((item, index) => (
+                                        <tr key={item.id} className="border-b border-gray-100 hover:bg-gray-50">
+                                            <td className="py-2 px-2 text-sm">{index + 1}</td>
+                                            <td className="py-2 px-2 text-sm">{item.gameName}</td>
+                                            <td className="py-2 px-2 text-sm">{item.resultDate}</td>
+                                            <td className="py-2 px-2 text-sm">{item.openTime}</td>
+                                            <td className="py-2 px-2 text-sm">{item.closeTime}</td>
+                                            <td className="py-2 px-2 text-sm">{item.openNumber}</td>
+                                            <td className="py-2 px-2 text-sm">{item.closeNumber}</td>
+                                            <td className="py-2 px-2 text-sm">
+                                                <Button
+                                                    variant="destructive"
+                                                    className="text-xs px-3 py-1"
+                                                    onClick={() => handleDelete(item.id)}
+                                                >
+                                                    Delete
+                                                </Button>
+                                            </td>
+                                        </tr>
+                                    ))
+                                )}
                             </tbody>
                         </table>
                     </div>
