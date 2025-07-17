@@ -70,7 +70,7 @@ const collapsibleMenuItems = [
     label: "Games Management",
     key: "games",
     subItems: [
-      { icon: Atom, label: "Game Name", href: "/game-name" },
+      { icon: Atom, label: "Game Name", href: "/starline/game-name" },
       { icon: Atom, label: "Game Rates", href: "/game-rates" },
       { icon: Atom, label: "Game Number", href: "/game-number" },
     ],
@@ -227,13 +227,11 @@ export default function Sidebar({
             <div key={item.key} className="relative group">
               <button
                 onClick={() => toggleSection(item.key)}
-                className={`w-full flex items-center ${
-                  collapsed ? "justify-center" : "justify-between"
-                } gap-3 px-3 py-2 rounded-lg transition-colors ${
-                  isParentActive(item.subItems)
+                className={`w-full flex items-center ${collapsed ? "justify-center" : "justify-between"
+                  } gap-3 px-3 py-2 rounded-lg transition-colors ${isParentActive(item.subItems)
                     ? "bg-slate-700 text-white"
                     : "text-gray-300 hover:bg-slate-700 hover:text-white"
-                }`}
+                  }`}
                 title={collapsed ? item.label : undefined}
               >
                 <div className="flex items-center gap-3">
@@ -267,11 +265,10 @@ export default function Sidebar({
                         <Link
                           key={subItem.href}
                           href={subItem.href}
-                          className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${
-                            isActive(subItem.href)
-                              ? "bg-slate-600 text-white"
-                              : "text-gray-300 hover:bg-slate-700 hover:text-white"
-                          }`}
+                          className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${isActive(subItem.href)
+                            ? "bg-slate-600 text-white"
+                            : "text-gray-300 hover:bg-slate-700 hover:text-white"
+                            }`}
                         >
                           <subItem.icon className="w-4 h-4" />
                           <span>{subItem.label}</span>
@@ -291,11 +288,10 @@ export default function Sidebar({
                       <Link
                         key={subItem.href}
                         href={subItem.href}
-                        className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${
-                          isActive(subItem.href)
-                            ? "bg-slate-600 text-white"
-                            : "text-gray-400 hover:bg-slate-700 hover:text-white"
-                        }`}
+                        className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${isActive(subItem.href)
+                          ? "bg-slate-600 text-white"
+                          : "text-gray-400 hover:bg-slate-700 hover:text-white"
+                          }`}
                       >
                         <subItem.icon className="w-4 h-4" />
                         <span>{subItem.label}</span>
@@ -311,11 +307,10 @@ export default function Sidebar({
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
-                isActive(item.href)
-                  ? "bg-slate-700 text-white"
-                  : "text-gray-300 hover:bg-slate-700 hover:text-white"
-              }`}
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${isActive(item.href)
+                ? "bg-slate-700 text-white"
+                : "text-gray-300 hover:bg-slate-700 hover:text-white"
+                }`}
               title={collapsed ? item.label : undefined}
             >
               <item.icon className="w-5 h-5 flex-shrink-0" />
