@@ -109,16 +109,12 @@ const collapsibleMenuItems = [
     subItems: [
       { icon: Atom, label: "Game Name", href: "/starline/game-name" },
       { icon: Atom, label: "Game Rates", href: "/starline/game-rates" },
-      { icon: Atom, label: "Bid History", href: "/bid-history" },
-      { icon: Atom, label: "Custom Sell Report", href: "/custom-sell-report" },
-      { icon: Atom, label: "Declare Result", href: "/declare-result" },
-      { icon: Atom, label: "Winning Prediction", href: "/winning prediction" },
-      {
-        icon: Atom,
-        label: "Starline Winning Report",
-        href: "/starline-winning-report",
-      },
-      { icon: Atom, label: "Bid Revert", href: "/bid-revert" },
+      { icon: Atom, label: "Bid History", href: "/starline/bid-history" },
+      { icon: Atom, label: "Custom Sell Report", href: "/starline/custom-sell-report" },
+      { icon: Atom, label: "Declare Result", href: "/starline/declare-result" },
+      { icon: Atom, label: "Winning Prediction", href: "/winning-prediction" },
+      { icon: Atom, label: "Starline Winning Report", href: "/starline/starline-winning-report", },
+      { icon: Atom, label: "Bid Revert", href: "/starline/bid-revert" },
     ],
   },
   {
