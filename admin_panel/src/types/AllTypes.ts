@@ -6,3 +6,9 @@ export type Staff = {
     fullAccess: boolean;
 };
 
+export type WinningPrediction = {
+    resultDate: string;
+    gameName: string;
+    openPanna?: string;
+    closePanna?: string;
+};

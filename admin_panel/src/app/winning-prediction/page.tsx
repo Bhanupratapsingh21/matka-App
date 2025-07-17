@@ -1,17 +1,18 @@
 "use client";
+import { WinningPrediction } from "@/types/AllTypes";
 import { useState } from "react";
 
 const Winning = () => {
-    const [resultDate, setResultDate] = useState(() => {
+    const [resultDate, setResultDate] = useState<string>(() => {
         const today = new Date();
         return today.toISOString().split("T")[0];
     });
 
-    const [gameName, setGameName] = useState("");
-    const [openSelected, setOpenSelected] = useState(false);
-    const [closeSelected, setCloseSelected] = useState(false);
-    const [openPanna, setOpenPanna] = useState("");
-    const [closePanna, setClosePanna] = useState("");
+    const [gameName, setGameName] = useState<string>("");
+    const [openSelected, setOpenSelected] = useState<boolean>(false);
+    const [closeSelected, setCloseSelected] = useState<boolean>(false);
+    const [openPanna, setOpenPanna] = useState<string>("");
+    const [closePanna, setClosePanna] = useState<string>("");
 
     const gameNames = [
         "KALYAN STAR MORNING", "MANGA MORNING", "MAHADEV MORNING",
@@ -33,6 +34,14 @@ const Winning = () => {
             alert("Please fill all required fields");
             return;
         }
+
+        const data: WinningPrediction = {
+            resultDate,
+            gameName,
+            openPanna: openSelected ? openPanna : undefined,
+            closePanna: closeSelected ? closePanna : undefined,
+        };
+
 
         console.log({
             resultDate,
