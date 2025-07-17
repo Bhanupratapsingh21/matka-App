@@ -1,3 +1,4 @@
+
 import DeclareResultContent from "@/components/declareResultContent";
 
 export default function DeclareResultPage() {
@@ -7,3 +8,4 @@ export default function DeclareResultPage() {
     </main>
   );
 }
+
