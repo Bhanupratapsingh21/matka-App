@@ -70,8 +70,8 @@ const collapsibleMenuItems = [
     label: "Games Management",
     key: "games",
     subItems: [
-      { icon: Atom, label: "Game Name", href: "/starline/game-name" },
-      { icon: Atom, label: "Game Rates", href: "/starline/game-rates" },
+      { icon: Atom, label: "Game Name", href: "/game-name" },
+      { icon: Atom, label: "Game Rates", href: "/game-rates" },
       { icon: Atom, label: "Game Number", href: "/game-number" },
     ],
   },
@@ -107,8 +107,8 @@ const collapsibleMenuItems = [
     label: "Starline Management",
     key: "starline",
     subItems: [
-      { icon: Atom, label: "Game Name", href: "/game-name" },
-      { icon: Atom, label: "Game Rates", href: "/game-rates" },
+      { icon: Atom, label: "Game Name", href: "/starline/game-name" },
+      { icon: Atom, label: "Game Rates", href: "/starline/game-rates" },
       { icon: Atom, label: "Bid History", href: "/bid-history" },
       { icon: Atom, label: "Custom Sell Report", href: "/custom-sell-report" },
       { icon: Atom, label: "Declare Result", href: "/declare-result" },
@@ -168,9 +168,8 @@ export default function Sidebar({
 
   return (
     <div
-      className={`${
-        collapsed ? "w-20" : "w-64"
-      } bg-slate-800 text-white min-h-screen fixed z-50 transition-all duration-300 ease-in-out`}
+      className={`${collapsed ? "w-20" : "w-64"
+        } bg-slate-800 text-white min-h-screen fixed z-50 transition-all duration-300 ease-in-out`}
     >
       <div className="p-4">
         {/* Header with logo and toggle button */}
@@ -201,9 +200,8 @@ export default function Sidebar({
 
         {/* Navigation menu */}
         <nav
-          className={`transition-all ${
-            collapsed ? "duration-300" : "duration-1000"
-          } ${collapsed ? "space-y-3.5" : "space-y-1"}`}
+          className={`transition-all ${collapsed ? "duration-300" : "duration-1000"
+            } ${collapsed ? "space-y-3.5" : "space-y-1"}`}
         >
           {menuItems.map((item) => (
             <Link
