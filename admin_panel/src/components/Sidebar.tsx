@@ -61,7 +61,7 @@ const collapsibleMenuItems = [
     key: "wallet",
     subItems: [
       { icon: Atom, label: "Fund Request", href: "/fund-request" },
-      { icon: Atom, label: "Withdraw Request", href: "/refund-request" },
+      { icon: Atom, label: "Withdraw Request", href: "/withdraw-request" },
       { icon: Atom, label: "Bid Revert", href: "/bid-revert" },
     ],
   },
@@ -152,9 +152,7 @@ export default function Sidebar({
   setCollapsed: (collapsed: boolean) => void;
 }) {
   const pathname = usePathname();
-  const [expandedSections, setExpandedSections] = useState<string[]>([
-    "reports",
-  ]);
+  const [expandedSections, setExpandedSections] = useState<string[]>([]);
 
   const toggleSection = (key: string) => {
     setExpandedSections((prev) =>
@@ -170,8 +168,9 @@ export default function Sidebar({
 
   return (
     <div
-      className={`${collapsed ? "w-20" : "w-64"
-        } bg-slate-800 text-white min-h-screen fixed z-50 transition-all duration-300 ease-in-out`}
+      className={`${
+        collapsed ? "w-20" : "w-64"
+      } bg-slate-800 text-white min-h-screen fixed z-50 transition-all duration-300 ease-in-out`}
     >
       <div className="p-4">
         {/* Header with logo and toggle button */}
@@ -202,8 +201,9 @@ export default function Sidebar({
 
         {/* Navigation menu */}
         <nav
-          className={`transition-all ${collapsed ? "duration-300" : "duration-1000"
-            } ${collapsed ? "space-y-3.5" : "space-y-1"}`}
+          className={`transition-all ${
+            collapsed ? "duration-300" : "duration-1000"
+          } ${collapsed ? "space-y-3.5" : "space-y-1"}`}
         >
           {menuItems.map((item) => (
             <Link
