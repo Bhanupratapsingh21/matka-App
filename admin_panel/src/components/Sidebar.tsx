@@ -71,7 +71,7 @@ const collapsibleMenuItems = [
     key: "games",
     subItems: [
       { icon: Atom, label: "Game Name", href: "/starline/game-name" },
-      { icon: Atom, label: "Game Rates", href: "/game-rates" },
+      { icon: Atom, label: "Game Rates", href: "/starline/game-rates" },
       { icon: Atom, label: "Game Number", href: "/game-number" },
     ],
   },
