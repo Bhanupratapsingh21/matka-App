@@ -6,9 +6,13 @@ export type Staff = {
     fullAccess: boolean;
 };
 
-export type WinningPrediction = {
-    resultDate: string;
-    gameName: string;
-    openPanna?: string;
-    closePanna?: string;
+export type GameName = {
+    id: number;
+    name: string;
+    nameHindi: string;
+    market: string;
+    openTime: string;
+    closeTime: string;
+    status: 'Active' | 'Inactive';
+    marketStatus: boolean;
 };
