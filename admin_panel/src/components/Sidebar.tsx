@@ -62,7 +62,7 @@ const collapsibleMenuItems = [
     subItems: [
       { icon: Atom, label: "Fund Request", href: "/fund-request" },
       { icon: Atom, label: "Withdraw Request", href: "/withdraw-request" },
-      { icon: Atom, label: "Bid Revert", href: "/bid-revert" },
+      { icon: Atom, label: "Bid Revert", href: "/starline/bid-revert" },
     ],
   },
   {
@@ -70,8 +70,8 @@ const collapsibleMenuItems = [
     label: "Games Management",
     key: "games",
     subItems: [
-      { icon: Atom, label: "Game Name", href: "/game-name" },
-      { icon: Atom, label: "Game Rates", href: "/game-rates" },
+      { icon: Atom, label: "Game Name", href: "/starline/game-name" },
+      { icon: Atom, label: "Game Rates", href: "/starline/game-rates" },
       { icon: Atom, label: "Game Number", href: "/game-number" },
     ],
   },
@@ -84,11 +84,7 @@ const collapsibleMenuItems = [
       { icon: Atom, label: "Contact Settings", href: "/contact-setting" },
       { icon: Atom, label: "How to play", href: "/how-to-play" },
       { icon: Atom, label: "Slider Images", href: "/slider-images" },
-      {
-        icon: Atom,
-        label: "Withdraw Day Option",
-        href: "/withdraw-day-option",
-      },
+      { icon: Atom, label: "Withdraw Day Option", href: "/withdraw-day-option", },
     ],
   },
   {
@@ -96,10 +92,10 @@ const collapsibleMenuItems = [
     label: "Notice Management",
     key: "notices",
     subItems: [
-      { icon: Atom, label: "Notice Management", href: "/notice-management" },
-      { icon: Atom, label: "Add Fund Notice", href: "/add-fund-notice" },
-      { icon: Atom, label: "Withdraw Notice", href: "/withdraw-notice" },
-      { icon: Atom, label: "send-notification", href: "/send-notification" },
+      { icon: Atom, label: "Notice Management", href: "/notification/notice-management" },
+      { icon: Atom, label: "Add Fund Notice", href: "/notification/add-fund-notice" },
+      { icon: Atom, label: "Withdraw Notice", href: "/notification/withdraw-notice" },
+      { icon: Atom, label: "send-notification", href: "/notification/send-notification" },
     ],
   },
   {
@@ -129,7 +125,7 @@ const collapsibleMenuItems = [
       { icon: Atom, label: "Declare Results", href: "/galidesawar/declare-results" },
       { icon: Atom, label: "Winning Prediction", href: "/winning-prediction" },
       { icon: Atom, label: "Winning Report", href: "/winning-report" },
-      { icon: Atom, label: "bid-revert", href: "/bid-revert" },
+      { icon: Atom, label: "bid-revert", href: "/starline/bid-revert" },
     ],
   },
 ];
