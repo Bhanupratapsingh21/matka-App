@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, forwardRef, useImperativeHandle } from 'react'
-import { useEditor, EditorContent, Editor } from '@tiptap/react'
+import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Heading from '@tiptap/extension-heading'
 
@@ -27,16 +27,14 @@ const RichTextEditor = forwardRef(({ content, onChange }: Props, ref) => {
         autofocus: true,
         editable: true,
         injectCSS: true,
-        immediatelyRender: false, // IMPORTANT to avoid hydration issues
+        immediatelyRender: false,
     })
 
-    // only after client mount
     useEffect(() => {
         setEditorReady(true)
         if (editor) editor.commands.setContent(content)
-    }, [])
+    }, [editor, content])
 
-    // expose editor instance to parent
     useImperativeHandle(ref, () => ({
         get editor() {
             return editor
@@ -47,5 +45,7 @@ const RichTextEditor = forwardRef(({ content, onChange }: Props, ref) => {
 
     return <EditorContent editor={editor} />
 })
+
+RichTextEditor.displayName = 'RichTextEditor'
 
 export default RichTextEditor

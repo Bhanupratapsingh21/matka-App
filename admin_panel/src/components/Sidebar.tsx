@@ -25,6 +25,13 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { LucideIcon } from "lucide-react";
+
+type SubMenuItem = {
+  icon: LucideIcon;
+  label: string;
+  href: string;
+};
 
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/" },
@@ -150,7 +157,7 @@ export default function Sidebar({
 
   const isActive = (href: string) => pathname === href;
 
-  const isParentActive = (subItems: any[]) => {
+  const isParentActive = (subItems: SubMenuItem[]) => {
     return subItems.some((item) => pathname === item.href);
   };
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Menu, Plus, Wifi, Battery, Signal } from "lucide-react"
+import { Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface Notification {

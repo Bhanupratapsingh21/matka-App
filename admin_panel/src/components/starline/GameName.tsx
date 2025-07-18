@@ -68,8 +68,6 @@ const initialGames: GameName[] = [
 
 const GameList = () => {
     const [games, setGames] = useState<GameName[]>(initialGames);
-    const [openTimes, setOpenTime] = useState(['']);
-    const [closeTimes, setCloseTime] = useState(['']);
     const [sidebar, setOpenSidebar] = useState(false);
     const [newGame, setNewGame] = useState({
         name: '',
@@ -94,7 +92,7 @@ const GameList = () => {
         };
         setGames(prev => [...prev, newEntry]);
         handleReset();
-    }
+    };
 
     const handleReset = () => {
         setNewGame({
@@ -107,14 +105,12 @@ const GameList = () => {
         });
         setOpenSidebar(false);
     };
+
     const toggleStatus = (id: number) => {
         setGames(prev =>
             prev.map(game =>
                 game.id === id
-                    ? {
-                        ...game,
-                        status: game.status === 'Active' ? 'Inactive' : 'Active',
-                    }
+                    ? { ...game, status: game.status === 'Active' ? 'Inactive' : 'Active' }
                     : game
             )
         );
@@ -123,7 +119,9 @@ const GameList = () => {
     const toggleMarketStatus = (id: number) => {
         setGames(prev =>
             prev.map(game =>
-                game.id === id ? { ...game, marketStatus: !game.marketStatus } : game
+                game.id === id
+                    ? { ...game, marketStatus: !game.marketStatus }
+                    : game
             )
         );
     };
@@ -131,27 +129,6 @@ const GameList = () => {
     const deleteGame = (id: number) => {
         setGames(prev => prev.filter(game => game.id !== id));
     };
-
-    const handleAddOpenTime = () => {
-        setOpenTime([...openTimes, '']);
-    };
-
-    const handleAddCloseTime = () => {
-        setCloseTime([...closeTimes, '']);
-    };
-
-    const handleOpenTimeChange = (index: number, value: string) => {
-        const newTimes = [...openTimes];
-        newTimes[index] = value;
-        setOpenTime(newTimes);
-    };
-
-    const handleCloseTimeChange = (index: number, value: string) => {
-        const newTimes = [...closeTimes];
-        newTimes[index] = value;
-        setCloseTime(newTimes);
-    };
-
     return (
         <div className="max-w-7xl mx-auto px-4 py-8">
             <div className="flex justify-between items-center mb-6">

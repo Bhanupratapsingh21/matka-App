@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
+import { Editor } from '@tiptap/react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -15,13 +16,8 @@ import {
 import {
     Bold,
     Italic,
-    Link,
-    AlignLeft,
-    AlignCenter,
-    AlignRight,
     List,
     ListOrdered,
-    Ellipsis,
     MoreHorizontal,
 } from 'lucide-react'
 
@@ -31,13 +27,13 @@ const RichTextEditor = dynamic(() => import('@/components/RichTextEditor'), {
 
 export default function WithdrawMoneyPage() {
     const [content, setContent] = useState('')
-    const editorRef = useRef<any>(null)
+    const editorRef = useRef<{ editor: Editor | null } | null>(null)
 
     const handleFormat = (action: string) => {
         const editor = editorRef.current?.editor
         if (!editor) return
 
-        const chain = editor.chain().focus()
+        // const chain = editor.chain().focus()
         switch (action) {
             case 'bold':
                 editor.chain().focus().toggleBold().run()

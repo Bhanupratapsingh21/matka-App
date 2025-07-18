@@ -16,7 +16,8 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from '@/components/ui/select'
+} from '@/components/ui/select';
+import { Editor } from '@tiptap/react'
 
 // Dynamically import the editor with SSR disabled
 const RichTextEditor = dynamic(() => import('@/components/RichTextEditor'), {
@@ -26,7 +27,8 @@ const RichTextEditor = dynamic(() => import('@/components/RichTextEditor'), {
 export default function Component() {
     const [mounted, setMounted] = useState(false)
     const [content, setContent] = useState(`<h3>Today Offer: Get 5% bonus on 5000 deposit</h3>`)
-    const editorRef = useRef<any>(null)
+
+    const editorRef = useRef<{ editor: Editor | null } | null>(null)
 
     useEffect(() => {
         setMounted(true)
