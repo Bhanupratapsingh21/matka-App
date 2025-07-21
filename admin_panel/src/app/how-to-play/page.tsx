@@ -37,7 +37,7 @@ export default function HowToPlayForm() {
               </div>
               <Textarea
                 id="how-to-play-content"
-                defaultValue={`1. DEPOSIT AND PLAY MINIMUM DEPOSIT 200 RS\n2. PLAY IN MARKET AND WIN AMOUNT AND DO WITHDRAWAL MINIMUM 1000 WITHDRAWAL`}
+                //  defaultValue={`1. DEPOSIT AND PLAY MINIMUM DEPOSIT 200 RS\n2. PLAY IN MARKET AND WIN AMOUNT AND DO WITHDRAWAL MINIMUM 1000 WITHDRAWAL`}
                 className="mt-1 min-h-[100px]"
               />
             </div>
@@ -52,7 +52,7 @@ export default function HowToPlayForm() {
                 </Label>
                 <Input
                   id="youtube-how-to-play"
-                  defaultValue="https://youtu.be/KTly3TK-c34"
+                  // defaultValue="https://youtu.be/KTly3TK-c34"
                   className="mt-1"
                 />
               </div>
@@ -65,7 +65,7 @@ export default function HowToPlayForm() {
                 </Label>
                 <Input
                   id="deposit-video"
-                  defaultValue="https://youtu.be/KTly3TK-c34"
+                  // defaultValue="https://youtu.be/KTly3TK-c34"
                   className="mt-1"
                 />
               </div>
@@ -78,7 +78,7 @@ export default function HowToPlayForm() {
                 </Label>
                 <Input
                   id="withdraw-video"
-                  defaultValue="https://youtu.be/KTly3TK-c34"
+                  //  defaultValue="https://youtu.be/KTly3TK-c34"
                   className="mt-1"
                 />
               </div>
@@ -91,7 +91,7 @@ export default function HowToPlayForm() {
                 </Label>
                 <Input
                   id="game-play-video"
-                  defaultValue="https://youtu.be/KTly3TK-c34"
+                  //defaultValue="https://youtu.be/KTly3TK-c34"
                   className="mt-1"
                 />
               </div>
@@ -104,7 +104,7 @@ export default function HowToPlayForm() {
                 </Label>
                 <Input
                   id="about-us-video"
-                  defaultValue="https://youtu.be/KTly3TK-c34"
+                  // defaultValue="https://youtu.be/KTly3TK-c34"
                   className="mt-1"
                 />
               </div>

@@ -1,74 +1,13 @@
-'use client';
+"use client"
 
-import React, { useState } from 'react';
-import { GameName } from '@/types/AllTypes';
+import React, { useState } from 'react'
+import { GameName } from '@/types/AllTypes'
 
-const initialGames: GameName[] = [
-    {
-        id: 1,
-        name: 'DISAWAR',
-        nameHindi: 'दिसावर',
-        market: 'Galidisswar',
-        openTime: '00:05',
-        closeTime: '04:40',
-        status: 'Active',
-        marketStatus: true,
-    },
-    {
-        id: 2,
-        name: 'FARIDABAD',
-        nameHindi: 'फरीदाबाद',
-        market: 'Galidisswar',
-        openTime: '00:05',
-        closeTime: '17:40',
-        status: 'Active',
-        marketStatus: true,
-    },
-    {
-        id: 3,
-        name: 'GHAZIABAD',
-        nameHindi: 'गाजियाबाद',
-        market: 'Galidisswar',
-        openTime: '00:05',
-        closeTime: '19:35',
-        status: 'Active',
-        marketStatus: true,
-    },
-    {
-        id: 4,
-        name: 'GALI',
-        nameHindi: 'गली',
-        market: 'Galidisswar',
-        openTime: '00:10',
-        closeTime: '23:10',
-        status: 'Active',
-        marketStatus: true,
-    },
-    {
-        id: 5,
-        name: 'DELHI BAZAR',
-        nameHindi: 'दिल्ली बाजार',
-        market: 'Galidisswar',
-        openTime: '01:00',
-        closeTime: '14:55',
-        status: 'Active',
-        marketStatus: true,
-    },
-    {
-        id: 6,
-        name: 'KALYAN MORNING',
-        nameHindi: 'KALYAN MORNING',
-        market: 'Galidisswar',
-        openTime: '10:55',
-        closeTime: '11:55',
-        status: 'Active',
-        marketStatus: true,
-    },
-];
+const initialGames: GameName[] = [] // No dummy games
 
 const GameList = () => {
-    const [games, setGames] = useState<GameName[]>(initialGames);
-    const [sidebar, setOpenSidebar] = useState(false);
+    const [games, setGames] = useState<GameName[]>(initialGames)
+    const [sidebar, setOpenSidebar] = useState(false)
     const [newGame, setNewGame] = useState({
         name: '',
         nameHindi: '',
@@ -76,10 +15,10 @@ const GameList = () => {
         day: '',
         openTime: '',
         closeTime: '',
-    });
+    })
 
     const handleSubmit = () => {
-        const newId = games.length > 0 ? games[games.length - 1].id + 1 : 1;
+        const newId = games.length > 0 ? games[games.length - 1].id + 1 : 1
         const newEntry: GameName = {
             id: newId,
             name: newGame.name,
@@ -89,10 +28,10 @@ const GameList = () => {
             closeTime: newGame.closeTime,
             status: 'Active',
             marketStatus: true,
-        };
-        setGames(prev => [...prev, newEntry]);
-        handleReset();
-    };
+        }
+        setGames(prev => [...prev, newEntry])
+        handleReset()
+    }
 
     const handleReset = () => {
         setNewGame({
@@ -102,9 +41,9 @@ const GameList = () => {
             day: '',
             openTime: '',
             closeTime: '',
-        });
-        setOpenSidebar(false);
-    };
+        })
+        setOpenSidebar(false)
+    }
 
     const toggleStatus = (id: number) => {
         setGames(prev =>
@@ -113,22 +52,21 @@ const GameList = () => {
                     ? { ...game, status: game.status === 'Active' ? 'Inactive' : 'Active' }
                     : game
             )
-        );
-    };
+        )
+    }
 
     const toggleMarketStatus = (id: number) => {
         setGames(prev =>
             prev.map(game =>
-                game.id === id
-                    ? { ...game, marketStatus: !game.marketStatus }
-                    : game
+                game.id === id ? { ...game, marketStatus: !game.marketStatus } : game
             )
-        );
-    };
+        )
+    }
 
     const deleteGame = (id: number) => {
-        setGames(prev => prev.filter(game => game.id !== id));
-    };
+        setGames(prev => prev.filter(game => game.id !== id))
+    }
+
     return (
         <div className="max-w-7xl mx-auto px-4 py-8">
             <div className="flex justify-between items-center mb-6">

@@ -12,18 +12,6 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 export default function ImageSliderList() {
-  // Example data for the table
-  const sliderImages = [
-    {
-      id: 1,
-      image: "/placeholder.svg?height=40&width=40", // Placeholder image
-      displayOrder: 1,
-      creationDate: "2024-11-30",
-      status: "Active",
-    },
-    // Add more dummy data if needed
-  ];
-
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8">
       <div className="max-w-7xl mx-auto space-y-6">
@@ -47,54 +35,18 @@ export default function ImageSliderList() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {sliderImages.map((item) => (
-                  <TableRow key={item.id}>
-                    <TableCell>{item.id}</TableCell>
-                    <TableCell>
-                      <Image
-                        src={item.image || "/placeholder.svg"}
-                        alt="Slider Image"
-                        width={40}
-                        height={40}
-                        className="rounded-sm object-cover"
-                      />
-                    </TableCell>
-                    <TableCell>{item.displayOrder}</TableCell>
-                    <TableCell>{item.creationDate}</TableCell>
-                    <TableCell>
-                      <Badge
-                        className={
-                          item.status === "Active"
-                            ? "bg-green-500"
-                            : "bg-red-500"
-                        }
-                      >
-                        {item.status}
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        className="text-red-600 border-red-300 hover:bg-red-50 bg-transparent"
-                      >
-                        Inactivate
-                      </Button>
-                      <Button
-                        variant="destructive"
-                        className="bg-red-600 hover:bg-red-700"
-                      >
-                        Delete
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
+                <TableRow>
+                  <TableCell colSpan={6} className="text-center text-gray-400 py-8">
+                    No slider images found.
+                  </TableCell>
+                </TableRow>
               </TableBody>
             </Table>
           </CardContent>
         </Card>
 
         <div className="text-center text-gray-500 text-sm mt-8">
-          2025 ©Matka.
+          2025 © Matka.
         </div>
       </div>
     </div>

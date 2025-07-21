@@ -20,7 +20,7 @@ export default function ContactSettingsForm() {
                 </Label>
                 <Input
                   id="mobile-number"
-                  defaultValue="988348673853"
+                  // defaultValue="988348673853"
                   className="mt-1"
                 />
               </div>
@@ -33,7 +33,7 @@ export default function ContactSettingsForm() {
                 </Label>
                 <Input
                   id="whatsapp-number"
-                  defaultValue="919828536895"
+                  // defaultValue="919828536895"
                   className="mt-1"
                 />
               </div>
@@ -46,7 +46,7 @@ export default function ContactSettingsForm() {
                 </Label>
                 <Input
                   id="telegram"
-                  defaultValue="https://t.me/+8uouosfpIKTw0NTlI"
+                  // defaultValue="https://t.me/+8uouosfpIKTw0NTlI"
                   className="mt-1"
                 />
               </div>

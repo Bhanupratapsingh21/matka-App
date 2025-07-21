@@ -15,20 +15,12 @@ import { Label } from "@/components/ui/label"
 export default function GameReportPage() {
     const [heading, setHeading] = useState("Today Result History")
 
-    const [data, setData] = useState([
-        {
-            id: 1,
-            gameName: "KALYAN MORNING",
-            resultDate: "2025-07-17",
-            openTime: "17 Jul 2025 11:23 AM",
-            closeTime: "17 Jul 2025 12:12 PM",
-            openNumber: "1290",
-            closeNumber: "9360",
-        },
-    ])
+    // Removed static data
+    const [data, setData] = useState<any[]>([])
 
     const handleFilterClick = () => {
         setHeading("17 July 2025 Result History")
+        // Fetch or filter data here in future
     }
 
     const handleDelete = (id: number) => {
