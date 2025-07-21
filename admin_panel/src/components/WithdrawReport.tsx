@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar } from "lucide-react";
 
 export default function WithdrawReport() {
+  /*
   const withdrawRequests = [
     {
       id: 1,
@@ -138,7 +139,7 @@ export default function WithdrawReport() {
       status: "success",
     },
   ];
-
+*/
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
       {/* Withdraw Report Form */}
@@ -204,7 +205,7 @@ export default function WithdrawReport() {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {withdrawRequests.map((request) => (
+              {/*withdrawRequests.map((request) => (
                 <tr key={request.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {request.id}
@@ -252,7 +253,8 @@ export default function WithdrawReport() {
                     </Button>
                   </td>
                 </tr>
-              ))}
+              ))
+                */}
             </tbody>
           </table>
         </div>

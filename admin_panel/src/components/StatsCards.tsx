@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Gamepad2, LogIn, UserPlus, Users } from "lucide-react";
-
+/*
 const stats = [
   {
     title: "Users",
@@ -27,11 +27,12 @@ const stats = [
     color: "bg-blue-500",
   },
 ];
-
+*/
 export default function StatsCards() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {stats.map((stat, index) => (
+      {/*
+      stats.map((stat, index) => (
         <Card key={index} className="relative overflow-hidden">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
@@ -47,7 +48,8 @@ export default function StatsCards() {
             </div>
           </CardContent>
         </Card>
-      ))}
+      ))
+        */}
     </div>
   );
 }

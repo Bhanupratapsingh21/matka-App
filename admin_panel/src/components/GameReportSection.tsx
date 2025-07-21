@@ -10,16 +10,16 @@ import {
 } from "@/components/ui/select";
 
 const reportData = [
-  { label: "Total Bid Amount", amount: "54263 ₹", color: "bg-white" },
-  { label: "Withdraw Request", amount: "17900 ₹", color: "bg-white" },
-  { label: "Total Winning Amount", amount: "44020 ₹", color: "bg-white" },
-  { label: "Total Deposit ( UPI )", amount: "19689 ₹", color: "bg-white" },
+  { label: "Total Bid Amount", amount: "0₹", color: "bg-white" },
+  { label: "Withdraw Request", amount: "0 ₹", color: "bg-white" },
+  { label: "Total Winning Amount", amount: "0 ₹", color: "bg-white" },
+  { label: "Total Deposit ( UPI )", amount: "0₹", color: "bg-white" },
   {
     label: "Total Profit Amount",
-    amount: "10243 ₹",
+    amount: "0 ₹",
     color: "bg-green-600 text-white",
   },
-  { label: "Add Funds ( Manually )", amount: "3700 ₹", color: "bg-white" },
+  { label: "Add Funds ( Manually )", amount: "0₹", color: "bg-white" },
 ];
 
 export default function GameReportSection() {

@@ -5,7 +5,7 @@ import GameReportSection from "@/components/GameReportSection";
 
 import StatsCards from "@/components/StatsCards";
 import WelcomeSection from "@/components/WelcomeSection";
-
+/*
 const fundRequests = [
   {
     id: 1,
@@ -88,15 +88,17 @@ const fundRequests = [
     status: "SUCCESS",
   },
 ];
-
+*/
 export default function Home() {
   return (
     <div className="flex flex-col gap-4">
-      <WelcomeSection approvedUsers={3846} UnapprovedUsers={9} />
+      <WelcomeSection approvedUsers={0} UnapprovedUsers={0} />
       <StatsCards />
       <BidsSection />
       <GameReportSection />
-      <FundRequestTable fundrequest={fundRequests} />
+      <FundRequestTable
+      //fundrequest={fundRequests}
+      />
     </div>
   );
 }

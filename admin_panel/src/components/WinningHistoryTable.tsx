@@ -1,5 +1,5 @@
 import React from "react";
-
+/*
 type WinningHistoryRow = {
   date: string;
   user: string;
@@ -18,8 +18,9 @@ type WinningHistoryRow = {
 type Props = {
   data: WinningHistoryRow[];
 };
-
-export default function WinningHistoryTable({ data }: Props) {
+*/
+export default function WinningHistoryTable() {
+  //  { data }: Props
   return (
     <div className="overflow-x-auto rounded-lg shadow bg-white mt-6">
       <table className="min-w-full text-xs sm:text-sm">
@@ -41,7 +42,8 @@ export default function WinningHistoryTable({ data }: Props) {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, i) => (
+          {/*
+          data.map((row, i) => (
             <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
               <td className="px-3 py-2">{i + 1}</td>
               <td className="px-3 py-2">{row.date}</td>
@@ -59,7 +61,8 @@ export default function WinningHistoryTable({ data }: Props) {
               <td className="px-3 py-2">{row.amount}</td>
               <td className="px-3 py-2">{row.wonamount}</td>
             </tr>
-          ))}
+          ))
+          */}
         </tbody>
       </table>
     </div>

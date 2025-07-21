@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
+/*
 const allUsers = [
   {
     id: 1,
@@ -116,7 +115,7 @@ const allUsers = [
     status: "Yes",
   })),
 ];
-
+*/
 export default function UserListTable() {
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
@@ -127,14 +126,16 @@ export default function UserListTable() {
   } | null>(null);
 
   // Filter users based on search term
-  const filteredUsers = allUsers.filter(
-    (user) =>
-      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.mobile.includes(searchTerm)
-  );
+  //const filteredUsers = allUsers.filter(
+  // (user) =>
+  //      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //      user.mobile.includes(searchTerm)
+  // );
 
   // Sort users
-  const sortedUsers = [...filteredUsers].sort((a, b) => {
+  const sortedUsers = [
+    //  ...filteredUsers
+  ].sort((a, b) => {
     if (!sortConfig) return 0;
 
     const aValue = a[sortConfig.key as keyof typeof a];
@@ -316,7 +317,8 @@ export default function UserListTable() {
                 </tr>
               </thead>
               <tbody>
-                {currentUsers.map((user, index) => (
+                {/*
+                currentUsers.map((user, index) => (
                   <tr
                     key={user.id}
                     className={`border-b hover:bg-gray-50 ${
@@ -369,7 +371,9 @@ export default function UserListTable() {
                       </Button>
                     </td>
                   </tr>
-                ))}
+                ))
+                  
+                */}
               </tbody>
             </table>
           </div>
