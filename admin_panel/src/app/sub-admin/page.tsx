@@ -31,9 +31,9 @@ export default function SubAdminPage() {
         setFormData({ name: "", number: "", password: "" });
     };
 
-    const handleDelete = (id: number) => {
-        setStaffList(staffList.filter((staff) => staff.id !== id));
-    };
+    // const handleDelete = (id: number) => {
+    //     setStaffList(staffList.filter((staff) => staff.id !== id));
+    // };
 
     return (
         <div className="p-4 space-y-6 max-w-4xl mx-auto">
