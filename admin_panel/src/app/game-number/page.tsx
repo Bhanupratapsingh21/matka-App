@@ -6,13 +6,15 @@ export default function Component() {
   const jodiDigitNumbers = Array.from({ length: 100 }, (_, i) =>
     i.toString().padStart(2, "0")
   );
+
+  /*
   const singlePanaNumbers = {
     0: [0, 127, 136, 145, 190, 235, 280, 370, 479, 460, 569, 389, 578],
     1: [1, 128, 137, 146, 236, 290, 380, 470, 499, 560, 678, 579],
     2: [2, 129, 138, 147, 156, 237, 246, 345, 390, 480, 570, 679, 589],
     3: [3, 120, 139, 148, 157, 238, 247, 256, 340, 399, 489, 579, 689],
   };
-
+  
   const doublePanaNumbers = {
     0: [0, 550, 668, 244, 299, 228, 488, 677, 118, 334],
     1: [1, 119, 155, 227, 335, 344, 399, 588, 669],
@@ -32,7 +34,7 @@ export default function Component() {
     "888",
     "999",
   ];
-
+  
   const closeAnkNumbers = [
     "000",
     "100",
@@ -185,7 +187,8 @@ export default function Component() {
     "458",
     "459",
   ];
-
+  
+  */
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8">
       <div className="max-w-7xl mx-auto space-y-6">
@@ -196,15 +199,17 @@ export default function Component() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
-              {singleDigitNumbers.map((num) => (
+              {/*
+              singleDigitNumbers.map((num) => (
                 <Button
-                  key={num}
-                  variant="outline"
-                  className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-12 h-12 flex items-center justify-center bg-transparent"
+                key={num}
+                variant="outline"
+                className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-12 h-12 flex items-center justify-center bg-transparent"
                 >
-                  {num}
+                {num}
                 </Button>
-              ))}
+              ))
+              */}
             </div>
           </CardContent>
         </Card>
@@ -216,15 +221,17 @@ export default function Component() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-[repeat(auto-fit,minmax(60px,1fr))] gap-2">
-              {jodiDigitNumbers.map((num) => (
+              {/*
+              jodiDigitNumbers.map((num) => (
                 <Button
-                  key={num}
-                  variant="outline"
-                  className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-14 h-12 flex items-center justify-center bg-transparent"
+                key={num}
+                variant="outline"
+                className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-14 h-12 flex items-center justify-center bg-transparent"
                 >
-                  {num}
+                {num}
                 </Button>
-              ))}
+              ))
+              */}
             </div>
           </CardContent>
         </Card>
@@ -235,32 +242,34 @@ export default function Component() {
             <CardTitle>Single Pana Numbers</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {Object.entries(singlePanaNumbers).map(([digit, numbers]) => (
+            {/*
+            Object.entries(singlePanaNumbers).map(([digit, numbers]) => (
               <div key={digit}>
-                <h3 className="text-lg font-semibold mb-2">Single Ank</h3>
-                <div className="flex flex-wrap gap-2">
+              <h3 className="text-lg font-semibold mb-2">Single Ank</h3>
+              <div className="flex flex-wrap gap-2">
+              <Button
+              variant="outline"
+              className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-12 h-12 flex items-center justify-center bg-transparent"
+              >
+              {digit}
+              </Button>
+              {numbers.slice(1).map(
+                (
+                  num // Slice to exclude the first digit which is handled by the main button
+                ) => (
                   <Button
-                    variant="outline"
-                    className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-12 h-12 flex items-center justify-center bg-transparent"
-                  >
-                    {digit}
-                  </Button>
-                  {numbers.slice(1).map(
-                    (
-                      num // Slice to exclude the first digit which is handled by the main button
-                    ) => (
-                      <Button
                         key={num}
                         variant="outline"
                         className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-20 h-12 flex items-center justify-center bg-transparent"
-                      >
+                        >
                         {num}
-                      </Button>
-                    )
-                  )}
-                </div>
-              </div>
-            ))}
+                        </Button>
+                      )
+                    )}
+                    </div>
+                    </div>
+                  ))
+                  */}
           </CardContent>
         </Card>
 
@@ -270,28 +279,30 @@ export default function Component() {
             <CardTitle>Double Pana Numbers</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {Object.entries(doublePanaNumbers).map(([digit, numbers]) => (
+            {/*
+            Object.entries(doublePanaNumbers).map(([digit, numbers]) => (
               <div key={digit}>
-                <h3 className="text-lg font-semibold mb-2">Single Ank</h3>
+              <h3 className="text-lg font-semibold mb-2">Single Ank</h3>
                 <div className="flex flex-wrap gap-2">
+                <Button
+                variant="outline"
+                className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-12 h-12 flex items-center justify-center bg-transparent"
+                >
+                {digit}
+                </Button>
+                {numbers.slice(1).map((num) => (
                   <Button
-                    variant="outline"
-                    className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-12 h-12 flex items-center justify-center bg-transparent"
+                  key={num}
+                  variant="outline"
+                  className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-20 h-12 flex items-center justify-center bg-transparent"
                   >
-                    {digit}
+                  {num}
                   </Button>
-                  {numbers.slice(1).map((num) => (
-                    <Button
-                      key={num}
-                      variant="outline"
-                      className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-20 h-12 flex items-center justify-center bg-transparent"
-                    >
-                      {num}
-                    </Button>
-                  ))}
+                ))}
                 </div>
-              </div>
-            ))}
+                </div>
+              ))
+              */}
           </CardContent>
         </Card>
 
@@ -302,15 +313,17 @@ export default function Component() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
-              {tripplePanaNumbers.map((num) => (
+              {/*
+              tripplePanaNumbers.map((num) => (
                 <Button
-                  key={num}
+                key={num}
                   variant="outline"
                   className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-20 h-12 flex items-center justify-center bg-transparent"
-                >
+                  >
                   {num}
-                </Button>
-              ))}
+                  </Button>
+                ))
+                */}
             </div>
           </CardContent>
         </Card>
@@ -324,29 +337,33 @@ export default function Component() {
             <div>
               <h3 className="text-lg font-semibold mb-2">Open Ank</h3>
               <div className="flex flex-wrap gap-2">
-                {singleDigitNumbers.map((num) => (
+                {/*
+                singleDigitNumbers.map((num) => (
                   <Button
-                    key={num}
-                    variant="outline"
-                    className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-12 h-12 flex items-center justify-center bg-transparent"
+                  key={num}
+                  variant="outline"
+                  className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-12 h-12 flex items-center justify-center bg-transparent"
                   >
-                    {num}
+                  {num}
                   </Button>
-                ))}
+                ))
+                */}
               </div>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-2">Close Ank</h3>
               <div className="grid grid-cols-[repeat(auto-fit,minmax(60px,1fr))] gap-2">
-                {closeAnkNumbers.map((num) => (
+                {/*
+                closeAnkNumbers.map((num) => (
                   <Button
-                    key={num}
+                  key={num}
                     variant="outline"
                     className="border-blue-300 text-blue-600 hover:bg-blue-50 text-base w-14 h-12 flex items-center justify-center bg-transparent"
-                  >
+                    >
                     {num}
-                  </Button>
-                ))}
+                    </Button>
+                  ))
+                  */}
               </div>
             </div>
           </CardContent>

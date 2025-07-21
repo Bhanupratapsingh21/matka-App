@@ -11,8 +11,9 @@ interface fundrequest {
   date: string;
   status: string;
 }
-export default function FundRequestTable(fundRequests: fundRequests) {
-  const fundRequest = fundRequests.fundrequest;
+export default function FundRequestTable() {
+  //  fundRequests: fundRequests
+  //const fundRequest = fundRequests.fundrequest;
   return (
     <Card>
       <CardHeader>
@@ -32,7 +33,7 @@ export default function FundRequestTable(fundRequests: fundRequests) {
               </tr>
             </thead>
             <tbody>
-              {fundRequest.map((request) => (
+              {/* fundRequest.map((request) => (
                 <tr key={request.id} className="border-b hover:bg-gray-50">
                   <td className="py-3 px-4">{request.id}</td>
                   <td className="py-3 px-4">
@@ -58,7 +59,8 @@ export default function FundRequestTable(fundRequests: fundRequests) {
                     </Badge>
                   </td>
                 </tr>
-              ))}
+              ))
+              */}
             </tbody>
           </table>
         </div>

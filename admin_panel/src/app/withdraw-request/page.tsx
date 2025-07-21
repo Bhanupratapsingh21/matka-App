@@ -11,6 +11,7 @@ import {
 import { MessageCircle, ChevronUp } from "lucide-react";
 
 export default function WithdrawRequest() {
+  /*
   const withdrawRequests = [
     {
       id: 1,
@@ -81,7 +82,7 @@ export default function WithdrawRequest() {
       date: "16 Jul 2025",
       time: "17:19 PM",
       remark:
-        "Withdraw Amount From RAJAN ASHOK MAYEKAR 026305300002510 SIBL0000263",
+      "Withdraw Amount From RAJAN ASHOK MAYEKAR 026305300002510 SIBL0000263",
       status: "success",
     },
     {
@@ -115,6 +116,7 @@ export default function WithdrawRequest() {
       status: "pending",
     },
   ];
+  */
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -221,62 +223,64 @@ export default function WithdrawRequest() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {withdrawRequests.map((request) => (
+                {/*
+                withdrawRequests.map((request) => (
                   <tr key={request.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {request.id}
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  {request.id}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <button className="text-blue-500 hover:text-blue-700 text-sm font-medium">
-                        {request.name}
-                      </button>
+                    <button className="text-blue-500 hover:text-blue-700 text-sm font-medium">
+                    {request.name}
+                    </button>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-900">
-                          {request.mobile}
-                        </span>
-                        <MessageCircle className="h-4 w-4 text-green-500" />
+                    <div className="flex items-center gap-2">
+                    <span className="text-sm text-gray-900">
+                    {request.mobile}
+                    </span>
+                    <MessageCircle className="h-4 w-4 text-green-500" />
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {request.amount}
+                    {request.amount}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       <div>
-                        <div>{request.date}</div>
-                        <div className="text-xs text-gray-500">
-                          {request.time}
-                        </div>
+                      <div>{request.date}</div>
+                      <div className="text-xs text-gray-500">
+                      {request.time}
                       </div>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-600 max-w-xs">
+                      </div>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-600 max-w-xs">
                       <div className="truncate" title={request.remark}>
-                        {request.remark}
+                      {request.remark}
                       </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
                       {getStatusBadge(request.status)}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex gap-2">
-                        <Button
-                          size="sm"
-                          className="bg-green-500 hover:bg-green-600 text-white"
-                        >
-                          Accept
+                      <Button
+                      size="sm"
+                      className="bg-green-500 hover:bg-green-600 text-white"
+                      >
+                      Accept
                         </Button>
                         <Button
                           size="sm"
                           variant="destructive"
                           className="bg-red-500 hover:bg-red-600"
-                        >
+                          >
                           Decline
-                        </Button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
+                          </Button>
+                          </div>
+                          </td>
+                          </tr>
+                        ))
+                        */}
               </tbody>
             </table>
           </div>

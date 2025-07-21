@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, MessageCircle } from "lucide-react";
 
 export default function AutoDepositHistory() {
+  /*
   const autoDepositHistory = [
     {
       id: 1,
@@ -124,6 +125,7 @@ export default function AutoDepositHistory() {
       status: "success",
     },
   ];
+  */
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -195,45 +197,47 @@ export default function AutoDepositHistory() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {autoDepositHistory.map((deposit) => (
-                  <tr key={deposit.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {deposit.id}
+                {/*
+               autoDepositHistory.map((deposit) => (
+                <tr key={deposit.id} className="hover:bg-gray-50">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                {deposit.id}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                <button className="text-blue-500 hover:text-blue-700 text-sm font-medium">
+                {deposit.userName}
+                </button>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <button className="text-blue-500 hover:text-blue-700 text-sm font-medium">
-                        {deposit.userName}
-                      </button>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-900">
+                    <div className="flex items-center gap-2">
+                    <span className="text-sm text-gray-900">
                           {deposit.mobile}
-                        </span>
+                          </span>
                         <MessageCircle className="h-4 w-4 text-green-500" />
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {deposit.amount}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      <div>
-                        <div>{deposit.date}</div>
-                        <div className="text-xs text-gray-500">
-                          {deposit.time}
                         </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {deposit.amount}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      <div>
+                      <div>{deposit.date}</div>
+                      <div className="text-xs text-gray-500">
+                      {deposit.time}
                       </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                      </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
                       <Badge
-                        variant="secondary"
-                        className="bg-green-100 text-green-800 hover:bg-green-100"
+                      variant="secondary"
+                      className="bg-green-100 text-green-800 hover:bg-green-100"
                       >
-                        success
+                      success
                       </Badge>
                     </td>
                   </tr>
-                ))}
+                ))
+                */}
               </tbody>
             </table>
           </div>
@@ -242,7 +246,7 @@ export default function AutoDepositHistory() {
 
       {/* Footer */}
       <footer className="text-center py-4 text-sm text-gray-500 bg-white border-t">
-        2025 ©Matka
+        2025 ©MH GAMES
       </footer>
     </div>
   );

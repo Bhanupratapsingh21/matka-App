@@ -5,8 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, MessageCircle } from "lucide-react";
 
 export default function FundRequest() {
-  const depositRequests = [
-    {
+  /*
+const depositRequests = [
+  {
       id: 1,
       userName: "pappu",
       mobile: "9021840738",
@@ -124,6 +125,7 @@ export default function FundRequest() {
       status: "success",
     },
   ];
+  */
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -192,45 +194,47 @@ export default function FundRequest() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {depositRequests.map((request) => (
+                {/*
+                depositRequests.map((request) => (
                   <tr key={request.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       {request.id}
-                    </td>
+                      </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div>
-                        <button className="text-blue-500 hover:text-blue-700 text-sm font-medium block">
+                    <div>
+                    <button className="text-blue-500 hover:text-blue-700 text-sm font-medium block">
                           {request.userName}
-                        </button>
-                        <div className="flex items-center gap-1 mt-1">
+                          </button>
+                          <div className="flex items-center gap-1 mt-1">
                           <span className="text-xs text-gray-600">
-                            {request.mobile}
+                          {request.mobile}
                           </span>
                           <MessageCircle className="h-3 w-3 text-green-500" />
-                        </div>
-                      </div>
+                          </div>
+                          </div>
+                          </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {request.amount}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {request.amount}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      <div>
-                        <div>{request.date}</div>
-                        <div className="text-xs text-gray-500">
-                          {request.time}
+                    <div>
+                    <div>{request.date}</div>
+                    <div className="text-xs text-gray-500">
+                    {request.time}
                         </div>
                       </div>
-                    </td>
+                      </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <Badge
-                        variant="secondary"
-                        className="bg-green-100 text-green-800 hover:bg-green-100"
-                      >
-                        success
-                      </Badge>
+                    <Badge
+                    variant="secondary"
+                    className="bg-green-100 text-green-800 hover:bg-green-100"
+                    >
+                    success
+                    </Badge>
                     </td>
-                  </tr>
-                ))}
+                    </tr>
+                  ))
+                  */}
               </tbody>
             </table>
           </div>

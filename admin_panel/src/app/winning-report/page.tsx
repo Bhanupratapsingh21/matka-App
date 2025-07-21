@@ -2,6 +2,7 @@ import FilterBar from "../../components/FilterBar";
 import WinningHistoryTable from "../../components/WinningHistoryTable";
 
 // Dummy data for demonstration
+/*
 const data = [
   {
     date: "17 Jul 2025",
@@ -19,13 +20,15 @@ const data = [
   },
   // ...add more rows as needed, structure matches above table
 ];
-
+*/
 export default function WinningHistoryPage() {
   return (
     <div className=" mx-auto px-4 py-8">
       <h2 className="text-xl font-semibold mb-4">Winning History List</h2>
       <FilterBar />
-      <WinningHistoryTable data={data} />
+      <WinningHistoryTable
+      //data={data}
+      />
     </div>
   );
 }

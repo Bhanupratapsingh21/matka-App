@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Calendar, Search } from "lucide-react";
+/*
 
 const bidHistoryData = [
   {
@@ -207,7 +208,7 @@ const bidHistoryData = [
     status: "-",
   },
 ];
-
+*/
 export default function UserBidHistoryContent() {
   const [selectedDate, setSelectedDate] = useState("2025-07-16");
   const [selectedGame, setSelectedGame] = useState("ALL Game");
@@ -223,13 +224,13 @@ export default function UserBidHistoryContent() {
     console.log("Edit bid with id:", id);
   };
 
-  const filteredData = bidHistoryData.filter(
+  /* const filteredData = bidHistoryData.filter(
     (bid) =>
       bid.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       bid.mobile.includes(searchTerm) ||
       bid.gameName.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+*/
   return (
     <div className="space-y-6">
       {/* Bid History Report Section */}
@@ -389,7 +390,8 @@ export default function UserBidHistoryContent() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredData.map((bid, index) => (
+                  {/*
+                  filteredData.map((bid, index) => (
                     <tr
                       key={bid.id}
                       className={`border-b hover:bg-gray-50 ${
@@ -447,7 +449,8 @@ export default function UserBidHistoryContent() {
                         </div>
                       </td>
                     </tr>
-                  ))}
+                  ))
+                    */}
                 </tbody>
               </table>
             </div>
