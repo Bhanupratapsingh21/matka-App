@@ -1,4 +1,4 @@
-import GameList from "@/components/starline/GameName";
+import GameList from "@/components/GameName";
 const GameName = () => {
   return (
     <div>

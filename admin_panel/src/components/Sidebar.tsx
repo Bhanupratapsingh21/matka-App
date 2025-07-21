@@ -141,7 +141,7 @@ const collapsibleMenuItems = [
         href: "/custom-sell-report",
       },
       { icon: Atom, label: "Bid History", href: "/bid-history" },
-      { icon: Atom, label: "Declare Results", href: "/declare-results" },
+      { icon: Atom, label: "Declare Results", href: "/declare-result" },
       { icon: Atom, label: "Winning Prediction", href: "/winning-prediction" },
       { icon: Atom, label: "Winning Report", href: "/winning-report" },
       { icon: Atom, label: "bid-revert", href: "/bid-revert" },

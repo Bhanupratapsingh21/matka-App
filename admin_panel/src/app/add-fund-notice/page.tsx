@@ -26,7 +26,7 @@ const RichTextEditor = dynamic(() => import('@/components/RichTextEditor'), {
 
 export default function Component() {
     const [mounted, setMounted] = useState(false)
-    const [content, setContent] = useState(`<h3>Today Offer: Get 5% bonus on 5000 deposit</h3>`)
+    const [content, setContent] = useState('')
 
     const editorRef = useRef<{ editor: Editor | null } | null>(null)
 

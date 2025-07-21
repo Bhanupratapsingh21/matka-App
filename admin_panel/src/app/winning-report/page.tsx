@@ -1,7 +1,6 @@
 import FilterBar from "../../components/FilterBar";
 import WinningHistoryTable from "../../components/WinningHistoryTable";
 
-// Dummy data for demonstration
 /*
 const data = [
   {
@@ -21,6 +20,7 @@ const data = [
   // ...add more rows as needed, structure matches above table
 ];
 */
+
 export default function WinningHistoryPage() {
   return (
     <div className=" mx-auto px-4 py-8">
