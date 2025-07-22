@@ -14,45 +14,39 @@ import { Label } from "@/components/ui/label"
 
 export default function GameReportPage() {
     const [heading, setHeading] = useState("Today Result History")
-
-    // Removed static data
     const [data, setData] = useState<any[]>([])
 
     const handleFilterClick = () => {
         setHeading("17 July 2025 Result History")
-        // Fetch or filter data here in future
+        // TODO: Add filter logic or API call
     }
 
     const handleDelete = (id: number) => {
-        const filteredData = data.filter((item) => item.id !== id)
-        setData(filteredData)
+        setData((prev) => prev.filter((item) => item.id !== id))
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 p-6">
-            <div className="max-w-7xl mx-auto">
-                {/* Select Game Section */}
-                <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-                    <h2 className="text-lg font-medium text-gray-700 mb-6">Select Game</h2>
+        <div className="min-h-screen bg-gray-50 px-4 py-6">
+            <div className="max-w-7xl mx-auto space-y-6">
 
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                {/* Filter Section */}
+                <div className="bg-white rounded-lg shadow-sm p-6">
+                    <h2 className="text-lg font-semibold text-gray-700 mb-6">Select Game</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div className="space-y-2">
-                            <Label htmlFor="result-date" className="text-sm text-gray-600">
-                                Result Date
-                            </Label>
+                            <Label htmlFor="result-date">Result Date</Label>
                             <Input
                                 id="result-date"
                                 type="text"
                                 value="17/07/2025"
-                                className="border-gray-300"
                                 readOnly
+                                className="border-gray-300 w-27"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="game-name" className="text-sm text-gray-600">
-                                Game Name
-                            </Label>
+                            <Label htmlFor="game-name">Game Name</Label>
                             <Select defaultValue="all-games">
                                 <SelectTrigger className="border-gray-300">
                                     <SelectValue placeholder="All Games" />
@@ -64,9 +58,7 @@ export default function GameReportPage() {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="game-type" className="text-sm text-gray-600">
-                                Game Type
-                            </Label>
+                            <Label htmlFor="game-type">Game Type</Label>
                             <Select defaultValue="all-games-type">
                                 <SelectTrigger className="border-gray-300">
                                     <SelectValue placeholder="All Games" />
@@ -78,9 +70,7 @@ export default function GameReportPage() {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="session" className="text-sm text-gray-600">
-                                Session
-                            </Label>
+                            <Label htmlFor="session">Session</Label>
                             <Select defaultValue="all">
                                 <SelectTrigger className="border-gray-300">
                                     <SelectValue placeholder="All" />
@@ -93,71 +83,72 @@ export default function GameReportPage() {
                     </div>
 
                     <div className="mt-6 flex justify-end">
-                        <Button className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-2">
+                        <Button
+                            className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2"
+                            onClick={handleFilterClick}
+                        >
                             Go
                         </Button>
                     </div>
                 </div>
 
-                {/* Winning History List Section */}
+                {/* Result Table Section */}
                 <div className="bg-white rounded-lg shadow-sm p-6">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end mb-6">
-                        <div className="space-y-2">
-                            <Label htmlFor="result-date" className="text-sm text-gray-600">
-                                Result Date
-                            </Label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <Label htmlFor="filter-date">Result Date</Label>
                             <Input
-                                id="result-date"
+                                id="filter-date"
                                 type="text"
                                 value="17/07/2025"
-                                className="border-gray-300"
                                 readOnly
+                                className="border-gray-300 mt-5"
                             />
                         </div>
-
-                        <div className="space-y-2">
-                            <Button onClick={handleFilterClick} className="bg-blue-700 text-white">
+                        <div className="flex items-end">
+                            <Button
+                                onClick={handleFilterClick}
+                                className="bg-blue-700 text-white w-full sm:w-auto"
+                            >
                                 Filter
                             </Button>
                         </div>
                     </div>
 
-                    <h2 className="text-lg font-medium text-gray-700 mb-6">
-                        {heading}
-                    </h2>
+                    <h2 className="text-lg font-semibold text-gray-700 mb-4">{heading}</h2>
 
                     <div className="overflow-x-auto">
-                        <table className="w-full">
+                        <table className="w-full text-sm border rounded">
                             <thead>
-                                <tr className="border-b border-gray-200">
-                                    <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">#</th>
-                                    <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">Game Name</th>
-                                    <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">Result Date</th>
-                                    <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">Open Declare Time</th>
-                                    <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">Close Declare Time</th>
-                                    <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">Open Number</th>
-                                    <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">Close Number</th>
-                                    <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">Action</th>
+                                <tr className="bg-gray-100 text-left text-gray-600">
+                                    <th className="p-2">#</th>
+                                    <th className="p-2">Game Name</th>
+                                    <th className="p-2">Result Date</th>
+                                    <th className="p-2">Open Time</th>
+                                    <th className="p-2">Close Time</th>
+                                    <th className="p-2">Open Number</th>
+                                    <th className="p-2">Close Number</th>
+                                    <th className="p-2">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {data.length === 0 ? (
                                     <tr>
-                                        <td colSpan={8} className="text-center py-4 text-gray-500">
+                                        <td colSpan={8} className="text-center text-gray-500 py-6">
                                             No data available
                                         </td>
                                     </tr>
                                 ) : (
                                     data.map((item, index) => (
-                                        <tr key={item.id} className="border-b border-gray-100 hover:bg-gray-50">
-                                            <td className="py-2 px-2 text-sm">{index + 1}</td>
-                                            <td className="py-2 px-2 text-sm">{item.gameName}</td>
-                                            <td className="py-2 px-2 text-sm">{item.resultDate}</td>
-                                            <td className="py-2 px-2 text-sm">{item.openTime}</td>
-                                            <td className="py-2 px-2 text-sm">{item.closeTime}</td>
-                                            <td className="py-2 px-2 text-sm">{item.openNumber}</td>
-                                            <td className="py-2 px-2 text-sm">{item.closeNumber}</td>
-                                            <td className="py-2 px-2 text-sm">
+                                        <tr key={item.id} className="border-t hover:bg-gray-50">
+                                            <td className="p-2">{index + 1}</td>
+                                            <td className="p-2">{item.gameName}</td>
+                                            <td className="p-2">{item.resultDate}</td>
+                                            <td className="p-2">{item.openTime}</td>
+                                            <td className="p-2">{item.closeTime}</td>
+                                            <td className="p-2">{item.openNumber}</td>
+                                            <td className="p-2">{item.closeNumber}</td>
+                                            <td className="p-2">
                                                 <Button
                                                     variant="destructive"
                                                     className="text-xs px-3 py-1"
