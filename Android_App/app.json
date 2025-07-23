@@ -4,7 +4,7 @@
     "slug": "matka-App",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "https://res.cloudinary.com/djwzwq4cu/image/upload/v1752442099/Kruti-AI-generated-image_e9hux8.png",
+    "icon": "./assets/images/Kruti-AI-generated-image_e9hux8.png",
     "scheme": "MH-GAMES",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,7 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "https://res.cloudinary.com/djwzwq4cu/image/upload/v1752442099/Kruti-AI-generated-image_e9hux8.png",
+        "foregroundImage": "./assets/images/Kruti-AI-generated-image_e9hux8.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
@@ -29,7 +29,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "https://res.cloudinary.com/djwzwq4cu/image/upload/v1752442099/Kruti-AI-generated-image_e9hux8.png",
+          "image": "./assets/images/Kruti-AI-generated-image_e9hux8.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
