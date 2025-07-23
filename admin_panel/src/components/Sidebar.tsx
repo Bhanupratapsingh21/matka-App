@@ -69,7 +69,7 @@ const collapsibleMenuItems = [
     subItems: [
       { icon: Atom, label: "Fund Request", href: "/fund-request" },
       { icon: Atom, label: "Withdraw Request", href: "/withdraw-request" },
-      { icon: Atom, label: "Bid Revert", href: "/starline/bid-revert" },
+      { icon: Atom, label: "Bid Revert", href: "/bid-revert" },
     ],
   },
   {
@@ -117,7 +117,7 @@ const collapsibleMenuItems = [
       { icon: Atom, label: "Game Name", href: "/game-name" },
       { icon: Atom, label: "Game Rates", href: "/game-rates" },
       { icon: Atom, label: "Bid History", href: "/bid-history" },
-      { icon: Atom, label: "Custom Sell Report", href: "/custom-sell-report" },
+      { icon: Atom, label: "Custom Sell Report", href: "/customer-sell-report" },
       { icon: Atom, label: "Declare Result", href: "/declare-result" },
       { icon: Atom, label: "Winning Prediction", href: "/winning-prediction" },
       {
@@ -138,7 +138,7 @@ const collapsibleMenuItems = [
       {
         icon: Atom,
         label: "Customer Sell Report",
-        href: "/custom-sell-report",
+        href: "/customer-sell-report",
       },
       { icon: Atom, label: "Bid History", href: "/bid-history" },
       { icon: Atom, label: "Declare Results", href: "/declare-result" },
@@ -175,9 +175,8 @@ export default function Sidebar({
 
   return (
     <div
-      className={`${
-        collapsed ? "w-20" : "w-64"
-      } bg-slate-800 text-white min-h-screen fixed z-50 transition-all duration-300 ease-in-out`}
+      className={`${collapsed ? "w-20" : "w-64"
+        } bg-slate-800 text-white min-h-screen fixed z-50 transition-all duration-300 ease-in-out`}
     >
       <div className="p-4">
         {/* Header with logo and toggle button */}
@@ -203,9 +202,8 @@ export default function Sidebar({
 
         {/* Navigation menu */}
         <nav
-          className={`transition-all ${
-            collapsed ? "duration-300" : "duration-1000"
-          } ${collapsed ? "space-y-3.5" : "space-y-1"}`}
+          className={`transition-all ${collapsed ? "duration-300" : "duration-1000"
+            } ${collapsed ? "space-y-3.5" : "space-y-1"}`}
         >
           {menuItems.map((item) => (
             <Link
@@ -229,13 +227,11 @@ export default function Sidebar({
             <div key={item.key} className="relative group">
               <button
                 onClick={() => toggleSection(item.key)}
-                className={`w-full flex items-center ${
-                  collapsed ? "justify-center" : "justify-between"
-                } gap-3 px-3 py-2 rounded-lg transition-colors ${
-                  isParentActive(item.subItems)
+                className={`w-full flex items-center ${collapsed ? "justify-center" : "justify-between"
+                  } gap-3 px-3 py-2 rounded-lg transition-colors ${isParentActive(item.subItems)
                     ? "bg-slate-700 text-white"
                     : "text-gray-300 hover:bg-slate-700 hover:text-white"
-                }`}
+                  }`}
                 title={collapsed ? item.label : undefined}
               >
                 <div className="flex items-center gap-3">
@@ -269,11 +265,10 @@ export default function Sidebar({
                         <Link
                           key={subItem.href}
                           href={subItem.href}
-                          className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${
-                            isActive(subItem.href)
-                              ? "bg-slate-600 text-white"
-                              : "text-gray-300 hover:bg-slate-700 hover:text-white"
-                          }`}
+                          className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${isActive(subItem.href)
+                            ? "bg-slate-600 text-white"
+                            : "text-gray-300 hover:bg-slate-700 hover:text-white"
+                            }`}
                         >
                           <subItem.icon className="w-4 h-4" />
                           <span>{subItem.label}</span>
@@ -293,11 +288,10 @@ export default function Sidebar({
                       <Link
                         key={subItem.href}
                         href={subItem.href}
-                        className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${
-                          isActive(subItem.href)
-                            ? "bg-slate-600 text-white"
-                            : "text-gray-400 hover:bg-slate-700 hover:text-white"
-                        }`}
+                        className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${isActive(subItem.href)
+                          ? "bg-slate-600 text-white"
+                          : "text-gray-400 hover:bg-slate-700 hover:text-white"
+                          }`}
                       >
                         <subItem.icon className="w-4 h-4" />
                         <span>{subItem.label}</span>
@@ -313,11 +307,10 @@ export default function Sidebar({
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
-                isActive(item.href)
-                  ? "bg-slate-700 text-white"
-                  : "text-gray-300 hover:bg-slate-700 hover:text-white"
-              }`}
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${isActive(item.href)
+                ? "bg-slate-700 text-white"
+                : "text-gray-300 hover:bg-slate-700 hover:text-white"
+                }`}
               title={collapsed ? item.label : undefined}
             >
               <item.icon className="w-5 h-5 flex-shrink-0" />

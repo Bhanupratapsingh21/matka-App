@@ -36,7 +36,7 @@ export default function GameReportPage() {
                                 id="result-date"
                                 type="text"
                                 value="17/07/2025"
-                                className="border-gray-300"
+                                className="border-gray-300 w-27"
                                 readOnly
                             />
                         </div>
